@@ -246,7 +246,7 @@
 <!-- Envelope intro (personalized via #Guest-Name in the link) -->
 <div class="env-wrap" id="envWrap">
   <div class="comb"></div>
-  <div class="env-top">YOU'VE GOT A SPECIAL INVITATION</div>
+  <div class="env-top" id="envTop">YOU'VE GOT A SPECIAL INVITATION</div>
   <div class="envelope" id="envelope" role="button" aria-label="Open your invitation">
     <div class="env-back"></div>
     <div class="env-card"><div class="mini">Brooke Raya</div><small>TURNS ONE &amp; IS GETTING CHRISTENED</small></div>
@@ -262,7 +262,7 @@
 <div class="maker" id="maker">
   <div class="inner">
     <h2>Make Personal Invitation Links</h2>
-    <p class="sub">Type one guest name per line, exactly how you want it shown (for example: Ate Bella, Tito Mark, Lola Nena). Each guest gets their own link with an envelope addressed to them.</p>
+    <p class="sub">Type one guest name per line, exactly how you want it shown (for example: Ate Bella, Tito Mark, Lola Nena). Each guest gets their own link, envelope and a unique message picked for them (Ate/Kuya, Tito/Tita, Lola/Lolo, Ninong/Ninang or friend).<br><br>Want to write your own note? Add it after a | like this:<br><b>Ate Bella | We can't wait to see you, Ate! Brooke loves you so much.</b></p>
     <textarea id="makerNames" placeholder="Ate Bella&#10;Tito Mark&#10;Ninang Kristine"></textarea>
     <div style="display:flex;gap:10px;margin-top:12px">
       <button class="btn solid" style="flex:1;justify-content:center" id="makerGo">✨ Make links</button>
@@ -785,21 +785,67 @@ document.querySelectorAll('section h2').forEach(h=>sio.observe(h));
 // ===== Personal invitations: link ends with #Ate-Bella =====
 const BASE_LINK = "https://vdele68.github.io/Brooke-raya/";
 const RESERVED = ['rsvp','wish','make-links',''];
-function guestFromHash(){
-  const h=decodeURIComponent((location.hash||'').slice(1));
-  if(!h || RESERVED.includes(h.toLowerCase())) return '';
-  return h.replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim();
+// Link format: #Ate-Bella  or with a custom note: #Ate-Bella|Your%20note
+function parseHash(){
+  let h=(location.hash||'').slice(1); try{ h=decodeURIComponent(h); }catch(e){}
+  if(!h || RESERVED.includes(h.toLowerCase())) return {name:'',note:''};
+  const i=h.indexOf('|'); const raw=i<0?h:h.slice(0,i); const note=i<0?'':h.slice(i+1).trim();
+  return {name:raw.replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim(), note};
 }
+function guestFromHash(){ return parseHash().name; }
 function slugName(n){ return n.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9 ]/g,'').trim().replace(/\s+/g,'-'); }
+
+// Unique messages by who the guest is, picked per name so each guest gets their own
+const ROLES=[
+  {keys:['ninang','ninong','godmother','godfather'], top:"A SPECIAL NOTE FOR BROOKE'S {T}", msgs:[
+    "{N}, thank you for saying yes to being Brooke Raya's {t}! We can't wait to stand with you at her christening. 🕊️",
+    "Brooke Raya is so blessed to have you as her {t}, {N}. Your guidance in faith means the world to our family. 🕊️",
+    "On February 9, you become part of Brooke Raya's faith story forever. We're so grateful to have you as her {t}! 🕊️",
+    "{N}, Brooke Raya has the best {t} in the world, and she wants you right beside her on her christening day! 🍓"]},
+  {keys:['lola','lolo','grandma','grandpa','nanay','tatay','mamang','papang'], top:"WITH LOVE, FOR BROOKE'S {T}", msgs:[
+    "{N}, your prayers and love carried Brooke Raya through her first year. Please join us as she receives God's blessing. 🙏",
+    "Brooke Raya's first birthday won't be the same without her {t}'s warm hugs. We'd be honored to celebrate with you! 🍓",
+    "From her first smile to her first giggles, you've been part of it all, {N}. Come celebrate this blessed day with us. 💕"]},
+  {keys:['tita','tito','auntie','aunt','uncle','tiyo','tiya'], top:"A SWEET NOTE FOR BROOKE'S {T}", msgs:[
+    "{N}, Brooke Raya is turning one and getting christened, and it won't be complete without her favorite {t}! 🍓",
+    "Thank you for loving Brooke Raya from day one, {N}. We'd be so happy to have you celebrate this milestone with her. 💕",
+    "Brooke Raya saved a big strawberry hug just for you, {N}! Join us for her christening and very first birthday. 🍓",
+    "{N}, every spoil and every cuddle counts! Come celebrate Brooke Raya's berry sweet day with us. 🍓"]},
+  {keys:['ate','kuya','cousin','pinsan','manang','manong'], top:"A BERRY SWEET NOTE FOR BROOKE'S {T}", msgs:[
+    "Your little cousin Brooke Raya can't wait to play with her favorite {t}! Come celebrate her christening and very first birthday. 🍓",
+    "{N}, Brooke Raya has been practicing her biggest smile just for you! Please be there for her special day. 😊",
+    "Every little strawberry needs a big {t} to look up to. Brooke Raya would love to celebrate her first year with you, {N}! 🍓",
+    "{N}, there will be ice cream, music and one very happy baby. Brooke Raya wants her {t} there! 🍦"]},
+  {keys:[], top:"YOU'VE GOT A SPECIAL INVITATION", msgs:[
+    "{N}, Brooke Raya would be so happy to have you with her on her christening and very first birthday. Your love means the world to her! 🍓",
+    "A berry sweet day is coming, {N}! Brooke Raya is turning one and receiving God's blessing, and we'd love for you to be there. 🍓",
+    "{N}, you're one of the special people Brooke Raya wants to celebrate with. Come share our joy on her big day! 💕",
+    "Save the date, {N}! Brooke Raya's christening and first birthday will be extra sweet with you there. 🍓",
+    "{N}, your kindness has touched our little family this year. We'd love for you to celebrate Brooke Raya's blessed day with us. 🙏"]}
+];
+function roleFor(name){
+  const first=(name.split(' ')[0]||'').toLowerCase();
+  const lower=name.toLowerCase();
+  return ROLES.find(r=>r.keys.includes(first)) || ROLES.find(r=>r.keys.some(k=>lower.includes(k))) || ROLES[ROLES.length-1];
+}
+function hashStr(t){ let h=7; for(const c of t.toLowerCase()) h=(h*31+c.charCodeAt(0))>>>0; return h; }
+function messageFor(name){
+  const r=roleFor(name); const first=name.split(' ')[0];
+  const title=r.keys.includes(first.toLowerCase()) ? first : (r.keys[0]||'');
+  const pick=r.msgs[hashStr(name)%r.msgs.length];
+  const fill=t=>t.replace(/\{N\}/g,name).replace(/\{t\}/g,title.charAt(0).toUpperCase()+title.slice(1).toLowerCase()).replace(/\{T\}/g,title.toUpperCase());
+  return {msg:fill(pick), top:fill(r.top)};
+}
 let GUEST = guestFromHash();
 function personalize(){
-  GUEST = guestFromHash();
+  const {name,note}=parseHash(); GUEST=name;
   const dear=document.getElementById('dear'), per=document.getElementById('personal');
   if(GUEST){
+    const m=messageFor(GUEST);
     document.getElementById('envTo').textContent='To: '+GUEST;
+    document.getElementById('envTop').textContent=m.top;
     dear.textContent='Dear '+GUEST+','; dear.style.display='block';
-    per.textContent='Brooke Raya would be so happy to have you, '+GUEST+', with her on her christening and very first birthday. Your love means the world to her! 🍓';
-    per.style.display='block';
+    per.textContent=note || m.msg; per.style.display='block';
     const rn=document.getElementById('rName'), wn=document.getElementById('wName');
     if(rn && !rn.value) rn.value=GUEST; if(wn && !wn.value) wn.value=GUEST;
     try{ refreshRsvp(); refreshWish(); }catch(e){}
@@ -831,11 +877,14 @@ document.getElementById('makerGo').onclick=()=>{
   const names=document.getElementById('makerNames').value.split('\n').map(x=>x.trim()).filter(Boolean);
   const out=document.getElementById('makerOut'); out.innerHTML=''; made=[];
   names.forEach(n=>{
-    const link=BASE_LINK+'#'+slugName(n); made.push(n+': '+link);
+    const parts=n.split('|'); const nm=parts[0].trim(); const note=(parts.slice(1).join('|')||'').trim();
+    const link=BASE_LINK+'#'+slugName(nm)+(note?'%7C'+encodeURIComponent(note):''); made.push(nm+': '+link);
+    const preview=note||messageFor(nm.replace(/[^A-Za-z0-9 ]/g,'').replace(/\s+/g,' ').trim()).msg;
     const row=document.createElement('div'); row.className='row';
     const info=document.createElement('div'); info.style.flex='1';
-    const b=document.createElement('b'); b.textContent=n; const c=document.createElement('code'); c.textContent=link;
-    info.append(b,c);
+    const b=document.createElement('b'); b.textContent=nm; const c=document.createElement('code'); c.textContent=link;
+    const pv=document.createElement('small'); pv.style.cssText='display:block;margin-top:6px;font-style:italic;color:#7a3340;line-height:1.45'; pv.textContent='💌 '+preview;
+    info.append(b,pv,c);
     const btn=document.createElement('button'); btn.textContent='Copy';
     btn.onclick=async()=>{ let ok=false; try{ await navigator.clipboard.writeText(link); ok=true; }catch(e){} btn.textContent=ok?'✓ Copied':'Hold link to copy'; setTimeout(()=>btn.textContent='Copy',2000); };
     row.append(info,btn); out.appendChild(row);
