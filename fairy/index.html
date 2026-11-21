@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brooke Raya | Our Little Fairy Is One</title>
+<meta name="description" content="You're invited! Brooke Raya's First Birthday and Christening, Tuesday, February 9, 2027 in Banga, South Cotabato. Tap to open and RSVP.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vdele68.github.io/Brooke-raya/fairy/">
+<meta property="og:title" content="You're invited to Brooke Raya's 1st Birthday &amp; Christening 🦋">
+<meta property="og:description" content="Tuesday, February 9, 2027 • Banga, South Cotabato. Tap to open your invitation and RSVP.">
+<meta property="og:image" content="https://vdele68.github.io/Brooke-raya/fairy/thumbnail.jpg">
+<meta property="og:image:secure_url" content="https://vdele68.github.io/Brooke-raya/fairy/thumbnail.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdele68.github.io/Brooke-raya/fairy/thumbnail.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fffafc; --butter:#f8e6f0; --butter2:#fcf2f8; --honey:#9a55a3; --honey-d:#7d3f88;
+    --sage:#b8c9a3; --sage-d:#728a5c; --brown:#6a3f6e; --ink:#5c4560;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',sans-serif;color:var(--ink);background:#f3e3f1;overflow-x:hidden}
+  .wrap{max-width:520px;margin:0 auto;position:relative;background:linear-gradient(180deg,#fffafc 0%,#f7e9f3 45%,#fffafc 100%);min-height:100vh;box-shadow:0 0 60px rgba(106,63,110,.12)}
+  section{position:relative;padding:56px 26px;text-align:center;z-index:2}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;color:var(--brown);line-height:1.1}
+  .sub{font-size:14.5px;line-height:1.65;opacity:.85;margin-top:12px}
+
+  /* honeycomb texture */
+  .comb{position:absolute;inset:0;opacity:.14;pointer-events:none;z-index:0;
+    background-image:radial-gradient(#d98cc4 2px,transparent 2.5px),radial-gradient(#d98cc4 2px,transparent 2.5px);background-size:34px 34px;background-position:0 0,17px 17px;}
+
+  /* floating layer */
+  #float{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+  .daisy{position:absolute;top:-30px;width:20px;height:20px;animation:fall linear forwards}
+  .hex{position:absolute;top:-20px;width:12px;height:12px;background:#e6c36a;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);opacity:.8;animation:fall linear forwards}
+  @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
+  .bee{position:absolute;width:40px;height:40px;animation:fly linear forwards;pointer-events:auto;cursor:pointer;padding:5px}
+  .bee.burst svg{animation:burst .35s ease-out forwards}
+  @keyframes burst{to{transform:scale(2.2);opacity:0}}
+  .plus{position:fixed;z-index:25;pointer-events:none;font-family:'Outfit';font-weight:600;color:var(--honey);animation:plus .8s ease-out forwards}
+  @keyframes plus{to{transform:translateY(-40px);opacity:0}}
+  .score{position:fixed;top:14px;left:14px;z-index:15;background:rgba(255,255,255,.9);color:var(--honey-d);border-radius:20px;padding:9px 14px;font-family:'Outfit';font-size:13px;font-weight:600;box-shadow:0 4px 12px rgba(106,63,110,.15);display:none}
+  .nextsong{position:fixed;top:64px;right:14px;z-index:15;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.9);color:var(--honey-d);font-size:15px;cursor:pointer;box-shadow:0 4px 12px rgba(106,63,110,.15);display:none;align-items:center;justify-content:center}
+  .nowplaying{position:fixed;top:20px;right:66px;z-index:15;background:var(--brown);color:#fff;font-family:'Outfit';font-size:12.5px;padding:8px 14px;border-radius:20px;opacity:0;transform:translateX(10px);transition:.4s;pointer-events:none}
+  .nowplaying.show{opacity:1;transform:none}
+  .bee svg{animation:buzz 1.4s ease-in-out infinite}
+  @keyframes fly{
+    0%{transform:translate(-40px,0)}
+    25%{transform:translate(25vw,-30px)}
+    50%{transform:translate(50vw,20px)}
+    75%{transform:translate(75vw,-25px)}
+    100%{transform:translate(calc(100vw + 40px),10px)}
+  }
+  @keyframes buzz{0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-6px) rotate(12deg)}}
+  .wing{transform-origin:50% 100%;animation:flap .12s linear infinite alternate}
+  @keyframes flap{to{transform:scaleY(.4)}}
+
+  /* hero */
+  .hero{padding-top:64px;padding-bottom:40px;overflow:hidden}
+  .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--honey-d);letter-spacing:3px;opacity:0;animation:fadeUp 1s .2s forwards}
+  .name{font-family:'Great Vibes',cursive;font-size:68px;color:var(--brown);line-height:1;margin-top:8px;opacity:0;animation:fadeUp 1.2s .5s forwards}
+  .turns{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--sage-d);margin-top:8px;letter-spacing:1px;opacity:0;animation:fadeUp 1.2s .7s forwards}
+  .one{display:inline-block;font-family:'Great Vibes',cursive;font-size:44px;color:var(--honey);animation:bob 3s ease-in-out infinite;vertical-align:middle}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  .archbox{position:relative;width:78%;max-width:330px;margin:28px auto 0}
+  .arch{aspect-ratio:3/4;border-radius:200px;border:4px solid #fff;outline:2px solid var(--honey);outline-offset:6px;overflow:hidden;position:relative;box-shadow:0 18px 40px rgba(154,85,163,.25);opacity:0;animation:fadeUp 1.2s .9s forwards}
+  .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;animation:zoom 14s ease-in-out infinite alternate}
+  @keyframes zoom{to{transform:scale(1.08)}}
+  .arch::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-100%);animation:shine 4.5s 2s infinite}
+  @keyframes shine{to{transform:translateX(100%)}}
+  .ring{position:absolute;inset:-22px;border-radius:230px;border:1.5px dashed rgba(163,192,142,.8);animation:spin 50s linear infinite;pointer-events:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .corner{position:absolute;width:64px;z-index:3;animation:sway 4s ease-in-out infinite}
+  .corner.tl{top:-10px;left:-22px}
+  .corner.br{bottom:-14px;right:-22px;animation-delay:-2s}
+  @keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+
+  .tagline{margin-top:30px;font-size:15px;line-height:1.6}
+  .datepill{margin:16px auto 0;max-width:360px;background:rgba(255,255,255,.8);border:1.5px solid #e6c8e6;border-radius:40px;padding:14px 18px}
+  .datepill b{font-size:17px;color:var(--brown);display:block}
+  .datepill small{font-size:13.5px;opacity:.8}
+  .btns{display:flex;gap:12px;justify-content:center;margin-top:18px}
+  .btn{border:none;cursor:pointer;font-family:'Outfit';font-weight:500;font-size:14.5px;padding:12px 24px;border-radius:30px;transition:transform .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .btn:active{transform:scale(.96)}
+  .btn.solid{background:var(--honey);color:#fff;animation:pulse 2.4s infinite}
+  .btn.ghost{background:rgba(255,255,255,.7);color:var(--sage-d);border:1.5px solid var(--sage)}
+  @keyframes pulse{0%,100%{box-shadow:0 8px 18px rgba(176,106,179,.4)}50%{box-shadow:0 8px 30px rgba(176,106,179,.75)}}
+
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .card{background:rgba(255,255,255,.85);border:1.5px solid #ead3ea;border-radius:24px;padding:26px 22px;margin-top:22px;box-shadow:0 10px 30px rgba(106,63,110,.07);position:relative;z-index:2}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--honey-d)}
+  .card .ic{font-size:26px}
+  .chip{display:inline-block;margin-top:10px;background:var(--butter);color:var(--honey-d);border-radius:20px;padding:6px 16px;font-size:14px;font-weight:500}
+  .venue{display:flex;gap:12px;text-align:left;margin-top:18px;padding-top:18px;border-top:1px solid #efdcee}
+  .venue b{color:var(--brown);font-size:16px}
+  .venue small{display:block;opacity:.7;margin-top:2px}
+  .map{display:inline-block;margin-top:8px;font-size:13px;color:var(--sage-d);font-weight:600}
+  .verse{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--brown);line-height:1.5;margin-top:26px;opacity:.9}
+
+  .gp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;position:relative;z-index:2}
+  .gp>div{background:rgba(255,255,255,.85);border:1.5px solid #ead3ea;border-radius:22px;padding:20px 10px}
+  .gp h4{font-family:'Great Vibes',cursive;font-weight:400;font-size:32px;color:var(--honey-d);margin-bottom:8px}
+  .gp p{font-size:13.5px;line-height:2;color:var(--brown)}
+  .count-sec{background:var(--butter2);overflow:hidden}
+  .count{display:flex;justify-content:center;gap:10px;margin-top:24px;position:relative;z-index:2}
+  .unit{width:74px;height:74px;border-radius:50%;border:2px solid #e6c8e6;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;filter:drop-shadow(0 4px 8px rgba(154,85,163,.2))}
+  .unit .n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--honey-d);line-height:1}
+  .unit .l{font-size:9px;letter-spacing:1.5px;opacity:.7;margin-top:3px}
+  .unit.tick .n{animation:tick .45s}
+  @keyframes tick{0%{transform:scale(1.3)}100%{transform:scale(1)}}
+  .pot{width:70px;margin:24px auto 0;display:block;animation:sway 3.5s ease-in-out infinite;transform-origin:50% 100%}
+
+  .gallery{columns:2;column-gap:12px;margin-top:24px}
+  .gallery .g{break-inside:avoid;margin-bottom:12px;border-radius:18px;overflow:hidden;cursor:pointer;border:3px solid #fff;box-shadow:0 8px 18px rgba(106,63,110,.12)}
+  .gallery .g img{width:100%;display:block;transition:transform .5s}
+  .gallery .g:hover img{transform:scale(1.05)}
+  .lb{position:fixed;inset:0;background:rgba(50,25,55,.88);z-index:30;display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.show{display:flex;animation:fade .3s}
+  .lb img{max-width:100%;max-height:85vh;border-radius:18px;border:4px solid #fff}
+  @keyframes fade{from{opacity:0}}
+
+  .tabs{display:flex;background:var(--butter2);border-radius:16px;padding:4px}
+  .tabs button{flex:1;border:none;background:none;padding:12px;border-radius:12px;font-family:'Outfit';font-size:14.5px;color:var(--brown);cursor:pointer;transition:.25s}
+  .tabs button.on{background:var(--honey);color:#fff}
+  label{display:block;text-align:left;font-size:11.5px;letter-spacing:1.5px;opacity:.7;margin:18px 0 8px}
+  input,textarea{width:100%;border:1.5px solid transparent;background:#fcf4fa;border-radius:14px;padding:14px;font-family:'Outfit';font-size:15px;color:var(--ink);outline:none;transition:.2s}
+  input:focus,textarea:focus{border-color:var(--honey);background:#fff}
+  textarea{min-height:80px;resize:vertical}
+  .num{display:flex;gap:10px}
+  .num button{width:52px;height:48px;border-radius:14px;border:none;background:#fcf4fa;font-family:'Outfit';font-size:16px;color:var(--ink);cursor:pointer;transition:.2s}
+  .num button.on{background:var(--honey);color:#fff;transform:scale(1.06)}
+  .full{width:100%;justify-content:center;margin-top:22px}
+  .done{display:none;padding:20px 6px}
+  .done .big{font-family:'Great Vibes',cursive;font-size:44px;color:var(--brown)}
+  .done p{font-size:14px;line-height:1.6;margin-top:8px}
+
+  .wish-sec{background:linear-gradient(180deg,#fbeef7,#fffafc);overflow:hidden}
+  .wishes{margin-top:22px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
+  .wish{background:#fff;border-radius:18px;padding:14px 16px;text-align:left;box-shadow:0 6px 16px rgba(106,63,110,.08);animation:pop .5s;border-left:4px solid var(--honey)}
+  .wish b{color:var(--honey-d);font-size:14px}
+  .wish p{font-size:14px;margin-top:4px;line-height:1.5}
+  @keyframes pop{from{opacity:0;transform:scale(.9) translateY(10px)}to{opacity:1;transform:none}}
+
+  .swatches{display:flex;justify-content:center;gap:16px;margin-top:24px}
+  .sw{width:62px;height:62px;border-radius:50%;box-shadow:0 6px 14px rgba(0,0,0,.08);border:3px solid #fff;animation:float 3s ease-in-out infinite}
+  .sw:nth-child(2){animation-delay:-.75s}.sw:nth-child(3){animation-delay:-1.5s}.sw:nth-child(4){animation-delay:-2.25s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .swl{display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:11px;opacity:.7}
+  .swl span{width:62px}
+
+  footer{background:var(--butter2);padding:54px 26px 74px;text-align:center;position:relative;overflow:hidden}
+  .mono{font-family:'Great Vibes',cursive;font-size:84px;color:var(--honey);line-height:1;position:relative;z-index:2}
+  .hash{display:inline-block;background:#fff;color:var(--honey-d);padding:6px 18px;border-radius:20px;font-size:14px;margin-top:8px;position:relative;z-index:2}
+  footer p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:18px;position:relative;z-index:2}
+  footer small{display:block;margin-top:22px;opacity:.6;font-size:12px;position:relative;z-index:2}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--brown);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:40;transition:transform .4s;max-width:90%;text-align:center}
+  .toast.show{transform:translate(-50%,0)}
+  .music{position:fixed;top:14px;right:14px;z-index:15;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.9);color:var(--honey-d);font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(106,63,110,.15)}
+  .music.on{animation:spin 4s linear infinite}
+  /* ===== Thank-you page ===== */
+  .thanks{position:fixed;inset:0;z-index:55;background:radial-gradient(circle at 50% 35%,#fffafc,#efd9ef);display:none;align-items:center;justify-content:center;text-align:center;padding:30px 24px;overflow:auto}
+  .thanks.show{display:flex;animation:fade .5s}
+  .tk-inner{position:relative;z-index:2;max-width:380px}
+  .tk-berry{animation:wobble 2.4s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(154,85,163,.3))}
+  .tk-big{font-family:'Great Vibes',cursive;font-size:64px;color:var(--brown);line-height:1.1;margin-top:6px}
+  .tk-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--honey-d);margin-top:4px}
+  .thanks p{font-size:15px;line-height:1.65;margin-top:14px}
+  .tk-date{margin:18px auto 0;background:#fff;border:1.5px solid #e6c8e6;border-radius:30px;padding:12px 18px;font-weight:500;color:var(--brown);font-size:14.5px;line-height:1.5}
+  .tk-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px!important}
+  .tk-sign span{font-family:'Great Vibes',cursive;font-style:normal;font-size:30px;color:var(--honey)}
+  .thanks .btn{margin-top:16px}
+  /* ===== Fun extras ===== */
+  .bee.big{width:84px;height:84px;padding:6px}
+  .bee.big svg{width:72px;height:72px;filter:drop-shadow(0 6px 10px rgba(154,85,163,.35))}
+  .bee.ice{width:54px;height:66px}
+  .bee.ice svg{width:46px;height:60px;animation:buzz 2s ease-in-out infinite}
+  .bit{position:fixed;z-index:26;pointer-events:none;width:18px;height:18px;animation:bit .8s ease-out forwards}
+  @keyframes bit{to{transform:translate(var(--bx),var(--by)) rotate(var(--br)) scale(.4);opacity:0}}
+  .bigberry{position:absolute;width:74px;z-index:3;cursor:pointer;animation:wobble 2.6s ease-in-out infinite;filter:drop-shadow(0 8px 12px rgba(154,85,163,.3));transition:transform .15s}
+  .bigberry.tr{top:-6px;right:-26px}
+  .bigberry.bl{bottom:30px;left:-30px;width:60px;animation-delay:-1.3s}
+  .bigberry.squish{animation:squish .45s ease}
+  @keyframes wobble{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
+  @keyframes squish{0%{transform:scale(1)}30%{transform:scale(1.35,.7)}60%{transform:scale(.85,1.2)}100%{transform:scale(1)}}
+  .ice-sec{background:linear-gradient(180deg,#fcf2f8,#f8e6f0);overflow:hidden}
+  .icebox{position:relative;width:200px;height:340px;margin:44px auto 0;cursor:pointer}
+  .cone{position:absolute;left:50%;bottom:0;width:120px;margin-left:-60px}
+  .scoops{position:absolute;left:50%;bottom:112px;width:130px;margin-left:-65px;height:220px}
+  .scoop{position:absolute;left:0;width:130px;height:84px;animation:drop .45s cubic-bezier(.3,1.6,.5,1)}
+  @keyframes drop{from{transform:translateY(-160px) scale(.8);opacity:0}to{transform:none;opacity:1}}
+  .topper{position:absolute;left:50%;width:58px;margin-left:-29px;animation:drop .5s cubic-bezier(.3,1.6,.5,1)}
+  .icebtns{display:flex;gap:10px;justify-content:center;margin-top:18px;position:relative;z-index:2}
+  .icecount{font-size:13px;opacity:.75;margin-top:10px;position:relative;z-index:2}
+  .floaty{position:absolute;width:56px;opacity:.9;animation:float 3.4s ease-in-out infinite;z-index:1}
+
+  .env-wrap{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fffafc,#ead3ec);transition:opacity .9s ease .6s}
+  .env-wrap.gone{opacity:0;pointer-events:none}
+  .env-wrap .comb{opacity:.12}
+  .env-top{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--honey-d);letter-spacing:3px;font-size:15px;margin-bottom:110px;position:relative}
+  .envelope{position:relative;width:300px;height:200px;cursor:pointer;animation:envfloat 3s ease-in-out infinite;filter:drop-shadow(0 18px 30px rgba(154,85,163,.25))}
+  @keyframes envfloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}
+  .env-back{position:absolute;inset:0;background:#e8c6e6;border-radius:10px}
+  .env-card{position:absolute;left:14px;right:14px;top:14px;height:170px;background:#fffafc;border-radius:8px;transition:transform 1s cubic-bezier(.2,.8,.2,1) .35s,opacity .3s .3s;opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;border:1.5px solid #e6c8e6;text-align:center;padding:0 10px}
+  .env-card .mini{font-family:'Great Vibes',cursive;font-size:34px;color:var(--brown);line-height:1}
+  .env-card small{font-size:11px;letter-spacing:2px;color:var(--honey-d);margin-top:6px}
+  .env-front{position:absolute;inset:0;border-radius:10px;background:linear-gradient(160deg,#f4d3ea,#e2b2dc);clip-path:polygon(0 30%,50% 62%,100% 30%,100% 100%,0 100%);z-index:2}
+  .env-flap{position:absolute;left:0;right:0;top:0;height:62%;background:linear-gradient(180deg,#efc6e6,#d9a3d4);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease;z-index:3}
+  .env-seal{position:absolute;left:50%;top:52%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e7a6d0,#9a55a3);z-index:4;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(106,63,110,.35);transition:transform .4s,opacity .4s}
+  .env-to{position:absolute;left:0;right:0;bottom:16px;text-align:center;z-index:4;font-family:'Great Vibes',cursive;font-size:30px;color:#6a3f6e;transition:opacity .3s}
+  .envelope.open{animation:none}
+  .envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+  .envelope.open .env-seal,.envelope.open .env-to{opacity:0;transform:scale(.5)}
+  .envelope.open .env-card{transform:translateY(-120px);opacity:1;z-index:5}
+  .env-hint{margin-top:26px;font-family:'Outfit';font-size:14px;color:var(--brown);background:#fff;padding:10px 20px;border-radius:30px;box-shadow:0 6px 16px rgba(106,63,110,.12);animation:pillbob2 2s ease-in-out infinite}
+  @keyframes pillbob2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .dear{font-family:'Great Vibes',cursive;font-size:34px;color:var(--honey);margin-bottom:6px;opacity:0;animation:fadeUp 1s .1s forwards}
+  .personal{font-size:14.5px;line-height:1.6;max-width:360px;margin:14px auto 0;font-style:italic;color:var(--brown)}
+  /* ===== Link maker ===== */
+  .maker{position:fixed;inset:0;z-index:60;background:#fffafc;overflow:auto;padding:30px 20px 60px;display:none}
+  .maker.show{display:block}
+  .maker .inner{max-width:520px;margin:0 auto}
+  .maker h2{font-size:30px}
+  .maker textarea{min-height:150px;background:#fff;border:1.5px solid #e6c8e6;margin-top:14px}
+  .maker .row{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid #f3d0d6;border-radius:14px;padding:10px 12px;margin-top:10px;text-align:left}
+  .maker .row b{display:block;color:var(--brown);font-size:14px}
+  .maker .row code{display:block;font-size:11.5px;color:#9b6670;word-break:break-all;margin-top:2px}
+  .maker .row button{flex:none;border:none;background:var(--honey);color:#fff;border-radius:20px;padding:8px 14px;font-family:'Outfit';cursor:pointer}
+
+  .soundpill{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:16;border:none;background:var(--honey);color:#fff;font-family:'Outfit';font-size:14px;font-weight:500;padding:11px 20px;border-radius:30px;box-shadow:0 8px 20px rgba(176,106,179,.4);cursor:pointer;animation:pillbob 2s ease-in-out infinite;transition:opacity .4s,transform .4s}
+  .soundpill.hide{opacity:0;pointer-events:none;transform:translate(-50%,20px)}
+  @keyframes pillbob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-5px)}}
+</style>
+</head>
+<body>
+<div id="float"></div>
+<!-- Envelope intro (personalized via #Guest-Name in the link) -->
+<div class="env-wrap" id="envWrap">
+  <div class="comb"></div>
+  <div class="env-top" id="envTop">YOU'VE GOT A SPECIAL INVITATION</div>
+  <div class="envelope" id="envelope" role="button" aria-label="Open your invitation">
+    <div class="env-back"></div>
+    <div class="env-card"><div class="mini">Brooke Raya</div><small>TURNS ONE &amp; IS GETTING CHRISTENED</small></div>
+    <div class="env-front"></div>
+    <div class="env-flap"></div>
+    <div class="env-seal"><svg viewBox="0 0 40 40" width="34" height="34"><use href="#beeS"/></svg></div>
+    <div class="env-to" id="envTo">To: Our Dear Guest</div>
+  </div>
+  <div class="env-hint">💌 Tap the envelope to open</div>
+</div>
+
+<!-- Personal link maker: open the invitation link ending in #make-links -->
+<div class="maker" id="maker">
+  <div class="inner">
+    <h2>Make Personal Invitation Links</h2>
+    <p class="sub">Type one guest name per line, exactly how you want it shown (for example: Ate Bella, Tito Mark, Lola Nena). Each guest gets their own link, envelope and a unique message picked for them (Ate/Kuya, Tito/Tita, Lola/Lolo, Ninong/Ninang or friend).<br><br>Want to write your own note? Add it after a | like this:<br><b>Ate Bella | We can't wait to see you, Ate! Brooke loves you so much.</b></p>
+    <textarea id="makerNames" placeholder="Ate Bella&#10;Tito Mark&#10;Ninang Kristine"></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px">
+      <button class="btn solid" style="flex:1;justify-content:center" id="makerGo">✨ Make links</button>
+      <button class="btn ghost" style="flex:1;justify-content:center" id="makerAll">📋 Copy all</button>
+    </div>
+    <div id="makerOut"></div>
+    <p class="sub" style="font-size:12.5px;margin-top:20px">Tip: send each guest the thumbnail photo first, then their link with a short note. <a href="#" id="makerClose" style="color:var(--honey-d)">Back to invitation</a></p>
+  </div>
+</div>
+
+<button class="music" id="music" aria-label="Sound on or off">♪</button>
+<button class="soundpill" id="soundPill">🦋 Tap for sound</button>
+<button class="nextsong" id="nextSong" aria-label="Next song">⏭</button>
+<div class="nowplaying" id="nowPlaying"></div>
+<div class="score" id="score"></div>
+
+<!-- reusable original illustrations -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="wingP" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#ffe3f1"/><stop offset="1" stop-color="#ee9fcb"/></radialGradient>
+    <radialGradient id="wingL" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#efe3ff"/><stop offset="1" stop-color="#b893e6"/></radialGradient>
+    <symbol id="beeS" viewBox="0 0 40 40">
+      <path d="M20 20 C15 6 4 4 3 12 C2 20 12 23 20 21Z" fill="url(#wingP)" stroke="#d98cc4" stroke-width=".6"/>
+      <path d="M20 20 C25 6 36 4 37 12 C38 20 28 23 20 21Z" fill="url(#wingP)" stroke="#d98cc4" stroke-width=".6"/>
+      <path d="M20 21 C13 22 7 27 10 33 C13 38 18 31 20 23Z" fill="url(#wingL)" stroke="#a57fd6" stroke-width=".6"/>
+      <path d="M20 21 C27 22 33 27 30 33 C27 38 22 31 20 23Z" fill="url(#wingL)" stroke="#a57fd6" stroke-width=".6"/>
+      <g fill="#e6c36a"><circle cx="10" cy="12" r="1.3"/><circle cx="30" cy="12" r="1.3"/><circle cx="13" cy="29" r="1"/><circle cx="27" cy="29" r="1"/></g>
+      <g fill="#ffffff" opacity=".7"><ellipse cx="11" cy="15" rx="2.5" ry="1.4" transform="rotate(-25 11 15)"/><ellipse cx="29" cy="15" rx="2.5" ry="1.4" transform="rotate(25 29 15)"/></g>
+      <ellipse cx="20" cy="22" rx="1.7" ry="8.5" fill="#6a3f6e"/>
+      <path d="M19.5 14 Q17 8 14 7 M20.5 14 Q23 8 26 7" stroke="#6a3f6e" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.1" fill="#e6c36a"/><circle cx="26" cy="7" r="1.1" fill="#e6c36a"/>
+    </symbol>
+    <symbol id="shroom" viewBox="0 0 40 40">
+      <path d="M15 22 Q14 34 12 37 H28 Q26 34 25 22Z" fill="#fff7ef" stroke="#e8d6c6" stroke-width=".8"/>
+      <path d="M3 23 C3 11 12 5 20 5 C28 5 37 11 37 23 C30 26 10 26 3 23Z" fill="#f2a9cf"/>
+      <path d="M8 15 C11 10 15 8 19 8" stroke="#ffffff" stroke-width="2" fill="none" opacity=".55" stroke-linecap="round"/>
+      <g fill="#ffffff"><circle cx="12" cy="17" r="2.4"/><circle cx="22" cy="12" r="2"/><circle cx="29" cy="18" r="2.6"/><circle cx="19" cy="20" r="1.5"/></g>
+    </symbol>
+    <symbol id="daisyS" viewBox="0 0 40 40">
+      <g fill="#fff" stroke="#efe6cf" stroke-width=".6">
+        <ellipse cx="20" cy="8" rx="4.5" ry="8"/><ellipse cx="20" cy="32" rx="4.5" ry="8"/>
+        <ellipse cx="8" cy="20" rx="8" ry="4.5"/><ellipse cx="32" cy="20" rx="8" ry="4.5"/>
+        <ellipse cx="11.5" cy="11.5" rx="4.5" ry="8" transform="rotate(-45 11.5 11.5)"/><ellipse cx="28.5" cy="28.5" rx="4.5" ry="8" transform="rotate(-45 28.5 28.5)"/>
+        <ellipse cx="28.5" cy="11.5" rx="4.5" ry="8" transform="rotate(45 28.5 11.5)"/><ellipse cx="11.5" cy="28.5" rx="4.5" ry="8" transform="rotate(45 11.5 28.5)"/>
+      </g>
+      <circle cx="20" cy="20" r="6" fill="#f2c14e"/>
+    </symbol>
+    <symbol id="iceS" viewBox="0 0 60 80">
+      <path d="M14 34 L30 78 L46 34Z" fill="#e3b17a"/>
+      <g stroke="#c48f55" stroke-width="1.4" opacity=".8"><path d="M18 40 L38 64 M24 36 L42 54 M42 40 L22 64 M36 36 L18 54"/></g>
+      <path d="M10 34 Q8 18 22 14 Q30 4 40 13 Q53 16 50 34 Q47 40 42 36 Q38 42 33 37 Q28 43 23 37 Q18 42 15 37 Q11 40 10 34Z" fill="#f7a9b8"/>
+      <path d="M14 26 Q20 16 30 18" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+      <g fill="#d98cc4"><circle cx="20" cy="28" r="2"/><circle cx="33" cy="24" r="2"/><circle cx="41" cy="30" r="1.8"/><circle cx="27" cy="32" r="1.6"/></g>
+      <use href="#beeS" x="20" y="-4" width="20" height="20"/>
+    </symbol>
+    <symbol id="scoopS" viewBox="0 0 130 84">
+      <path d="M8 60 Q2 26 34 18 Q52 0 76 10 Q120 12 122 56 Q124 70 112 64 Q106 76 96 66 Q86 78 76 66 Q66 78 56 66 Q46 78 36 66 Q26 76 20 64 Q8 72 8 60Z" fill="currentColor"/>
+      <path d="M24 40 Q36 22 56 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
+      <g fill="#d98cc4" opacity=".85"><circle cx="40" cy="48" r="4"/><circle cx="70" cy="38" r="3.5"/><circle cx="92" cy="50" r="4"/><circle cx="60" cy="56" r="3"/></g>
+    </symbol>
+    <symbol id="coneS" viewBox="0 0 120 130">
+      <path d="M6 8 H114 L60 128Z" fill="#e3b17a"/>
+      <g stroke="#c48f55" stroke-width="2.5" opacity=".8"><path d="M20 8 L72 100 M44 8 L86 72 M68 8 L98 40 M100 8 L48 100 M76 8 L34 72 M52 8 L22 40"/></g>
+      <rect x="2" y="2" width="116" height="14" rx="7" fill="#d9a26a"/>
+    </symbol>
+    <symbol id="potS" viewBox="0 0 80 90">
+      <path d="M14 30 Q40 -4 66 30" stroke="#b98a5e" stroke-width="4" fill="none"/>
+      <use href="#beeS" x="12" y="14" width="24" height="24"/>
+      <use href="#beeS" x="28" y="8" width="26" height="26"/>
+      <use href="#beeS" x="44" y="15" width="24" height="24"/>
+      <path d="M8 34 H72 L64 82 Q40 90 16 82Z" fill="#d9a877"/>
+      <path d="M8 34 H72 L71 42 H9Z" fill="#c4915f"/>
+      <g stroke="#b98a5e" stroke-width="1.5" opacity=".7"><path d="M12 52 H68 M14 64 H66 M16 75 H64"/><path d="M26 42 L28 84 M40 42 V87 M54 42 L52 84"/></g>
+      <path d="M8 38 Q20 46 32 38 Q44 46 56 38 Q66 45 72 38" fill="none" stroke="#d98cc4" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="comb"></div>
+    <div class="dear" id="dear" style="display:none"></div>
+    <div class="eyebrow">OUR LITTLE FAIRY IS ONE</div>
+    <div class="name">Brooke Raya</div>
+    <div class="turns">turns <span class="one">one</span> &amp; is getting christened</div>
+
+    <div class="archbox">
+      <div class="ring"></div>
+      <svg class="corner tl" viewBox="0 0 40 40"><use href="#daisyS"/></svg>
+      <svg class="corner br" viewBox="0 0 40 40"><use href="#daisyS"/></svg>
+      <svg class="bigberry tr" viewBox="0 0 40 40"><use href="#beeS"/></svg>
+      <svg class="bigberry bl" viewBox="0 0 40 40"><use href="#beeS"/></svg>
+      <div class="arch"><img src="../img/p10.jpg" alt="Brooke Raya laughing in her pink dress and hat"></div>
+    </div>
+
+    <p class="personal" id="personal" style="display:none"></p>
+    <p class="sub" style="font-size:12.5px;margin-top:22px;opacity:.7">Psst... tap the fluttering butterflies 🦋</p>
+    <p class="tagline">Come share our joy as Brooke receives God's blessing<br>and celebrates her very first birthday.</p>
+    <div style="display:flex;justify-content:center;gap:250px;margin-top:-8px;height:0;position:relative;z-index:3"><svg viewBox="0 0 40 40" width="46" height="46" style="transform:translateY(20px)" aria-hidden="true"><use href="#shroom"/></svg><svg viewBox="0 0 40 40" width="36" height="36" style="transform:translateY(34px)" aria-hidden="true"><use href="#shroom"/></svg></div>
+    <div class="datepill">
+      <b>Tuesday, February 9, 2027</b>
+      <small>📍 Banga, South Cotabato</small>
+    </div>
+    <div class="btns">
+      <a class="btn solid" href="#rsvp">✈ RSVP</a>
+      <a class="btn ghost" href="#wish">💌 Send a Wish</a>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section>
+    <h2 class="reveal">A Magical Fairy Day</h2>
+    <p class="sub reveal">With grateful hearts, we invite you to witness the christening of our daughter and stay for a sweet celebration of her first year.</p>
+
+    <div class="card reveal">
+      <div class="ic">🕊️</div>
+      <h3>The Christening</h3>
+      <p style="font-size:14px;margin-top:6px;color:var(--brown)">Brooke Raya D. Nogra</p>
+      <span class="chip">Time to follow</span>
+      <div class="venue">
+        <span style="font-size:20px">⛪</span>
+        <div>
+          <b>Banga Catholic Church</b>
+          <small>Banga, South Cotabato</small>
+          <a class="map" href="https://maps.google.com/?q=Banga+Catholic+Church+Banga+South+Cotabato" target="_blank" rel="noopener">Open in Maps →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="ic">🦋</div>
+      <h3>The Celebration</h3>
+      <span class="chip">Time to follow</span>
+      <div class="venue">
+        <span style="font-size:20px">📍</span>
+        <div>
+          <b>Reception</b>
+          <small>Banga, South Cotabato</small>
+          <a class="map" href="https://maps.google.com/?q=Banga+South+Cotabato" target="_blank" rel="noopener">Open in Maps →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="verse reveal">"Every good and perfect gift is from above."<br><span style="font-size:14px;font-style:normal;opacity:.7">James 1:17</span></p>
+  </section>
+
+  <!-- GODPARENTS -->
+  <section class="count-sec" style="background:#fdf5fa">
+    <div class="comb"></div>
+    <h2 class="reveal" style="position:relative;z-index:2">Brooke's Godparents</h2>
+    <p class="sub reveal" style="position:relative;z-index:2">With love and gratitude to those who will guide her in faith.</p>
+    <div class="gp reveal">
+      <div><h4>Ninongs</h4>
+        <p>Mark Anthony Reyes</p><p>John Paul Santos</p><p>Christian Dela Cruz</p><p>Jerome Villanueva</p><p>Ryan Bautista</p><p>Kenneth Mendoza</p><p>Joshua Ramos</p><p>Carlo Fernandez</p><p>Patrick Gonzales</p><p>Miguel Torres</p>
+      </div>
+      <div><h4>Ninangs</h4>
+        <p>Maria Cristina Lopez</p><p>Angelica Garcia</p><p>Kristine Aquino</p><p>Jennifer Castillo</p><p>Michelle Navarro</p><p>Patricia Rivera</p><p>Camille Soriano</p><p>Joanna Flores</p><p>Danica Morales</p><p>Bea Salazar</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="count-sec">
+    <div class="comb"></div>
+    <h2 class="reveal" style="position:relative;z-index:2">Until Brooke's Big Day</h2>
+    <p class="sub reveal" style="position:relative;z-index:2">Our little fairy is spreading her wings.</p>
+    <div class="count reveal">
+      <div class="unit" id="u-d"><span class="n">00</span><span class="l">DAYS</span></div>
+      <div class="unit" id="u-h"><span class="n">00</span><span class="l">HOURS</span></div>
+      <div class="unit" id="u-m"><span class="n">00</span><span class="l">MINS</span></div>
+      <div class="unit" id="u-s"><span class="n">00</span><span class="l">SECS</span></div>
+    </div>
+    <svg class="pot" viewBox="0 0 80 90"><use href="#potS"/></svg>
+  </section>
+
+  <!-- ICE CREAM GAME -->
+  <section class="ice-sec">
+    <div class="comb"></div>
+    <svg class="floaty" viewBox="0 0 60 80" style="left:14px;top:40px"><use href="#iceS"/></svg>
+    <svg class="floaty" viewBox="0 0 60 80" style="right:14px;top:120px;animation-delay:-1.7s"><use href="#iceS"/></svg>
+    <h2 class="reveal" style="position:relative;z-index:2">Build Brooke a Fairy Ice Cream</h2>
+    <p class="sub reveal" style="position:relative;z-index:2">Tap the cone to stack the scoops. Can you make it 5 scoops high? 🍦</p>
+    <div class="icebox" id="icebox">
+      <div class="scoops" id="scoops"></div>
+      <svg class="cone" viewBox="0 0 120 130"><use href="#coneS"/></svg>
+    </div>
+    <div class="icecount" id="icecount">0 of 5 scoops</div>
+    <div class="icebtns">
+      <button class="btn solid" id="addScoop" type="button">🍦 Add a scoop</button>
+      <button class="btn ghost" id="resetIce" type="button">↺ Start over</button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <h2 class="reveal">Brooke's First Year</h2>
+    <p class="sub reveal">Little moments that made our hearts so full. Tap a photo to see it bigger.</p>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <h2 class="reveal">Will You Join Us?</h2>
+    <p class="sub reveal">Kindly let us know if you can share Brooke's special day with us.</p>
+    <div class="card reveal">
+      <form id="rsvpForm">
+        <div class="tabs">
+          <button type="button" class="on" data-a="yes">Joyfully Accepts</button>
+          <button type="button" data-a="no">Regretfully Declines</button>
+        </div>
+        <label>FULL NAME</label>
+        <input id="rName" placeholder="Enter your full name" required>
+        <div id="countWrap">
+          <label>NUMBER OF GUESTS</label>
+          <div class="num">
+            <button type="button" class="on">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button>
+          </div>
+        </div>
+        <label>WARM NOTE</label>
+        <textarea id="rNote" placeholder="Write a short note for the family..."></textarea>
+        <a class="btn solid full" id="rsvpBtn" href="#" role="button">✈ Send RSVP</a>
+      </form>
+      <div class="done" id="rsvpDone">
+        <div class="big">Thank you!</div>
+        <p id="doneMsg"></p>
+        <button type="button" class="btn ghost" style="margin-top:14px" id="rsvpAgain">Send another RSVP</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISHES -->
+  <section class="wish-sec" id="wish">
+    <div class="comb"></div>
+    <h2 class="reveal" style="position:relative;z-index:2">Leave a Little Blessing</h2>
+    <p class="sub reveal" style="position:relative;z-index:2">Share a prayer, a birthday wish, or a sweet message for Brooke.</p>
+    <div class="card reveal">
+      <form id="wishForm">
+        <label>YOUR NAME</label>
+        <input id="wName" placeholder="Enter your name" required>
+        <label>YOUR MESSAGE</label>
+        <textarea id="wMsg" placeholder="Write your blessing here..." required></textarea>
+        <a class="btn solid full" id="wishBtn" href="#" role="button">💌 Send Your Blessing</a>
+      </form>
+
+    </div>
+    <h3 style="font-family:'Cormorant Garamond';font-size:24px;color:var(--brown);margin-top:34px;position:relative;z-index:2">Blessings &amp; Warm Hugs</h3>
+    <div class="wishes" id="wishes"></div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section>
+    <h2 class="reveal">Dress in Fairy Pastels</h2>
+    <p class="sub reveal">Light and elegant: cream, blush pink, lavender, and sage.</p>
+    <div class="swatches reveal">
+      <div class="sw" style="background:#fff8f0"></div>
+      <div class="sw" style="background:#f6c6dd"></div>
+      <div class="sw" style="background:#c9a6e3"></div>
+      <div class="sw" style="background:#a3c08e"></div>
+    </div>
+    <div class="swl reveal"><span>Cream</span><span>Blush</span><span>Lavender</span><span>Sage</span></div>
+  </section>
+
+  <footer>
+    <div class="comb"></div>
+    <div class="mono reveal">B</div>
+    <span class="hash">#BrookeRayaTurnsOne</span>
+    <p>Thank you for being part of Brooke's very first chapter.</p>
+    <small>Made with love for Brooke Raya • 2027</small>
+  </footer>
+</div>
+
+<div class="lb" id="lb"><img id="lbImg" alt=""></div>
+<div class="toast" id="toast"></div>
+<div class="thanks" id="thanks">
+  <div class="comb"></div>
+  <div class="tk-inner">
+    <svg viewBox="0 0 40 40" width="86" height="86" class="tk-berry"><use href="#beeS"/></svg>
+    <div class="tk-big">Thank you!</div>
+    <div class="tk-name" id="tkName"></div>
+    <p id="tkMsg"></p>
+    <div class="tk-date">Tuesday, February 9, 2027<br>Banga, South Cotabato</div>
+    <p class="tk-sign">With love,<br><span>Brooke Raya's family</span> 🦋</p>
+    <button class="btn solid" id="tkBack" type="button">Back to the invitation</button>
+  </div>
+</div>
+
+<script>
+/* ===== EDIT THESE ===== */
+const EVENT_DATE = new Date("2027-02-09T09:00:00+08:00");
+const CHILD = "Brooke Raya";
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScN_q38tQJxOrZQ5kjJ1w4c_TbQytcAGDDN5hx10SGzvP03Bw/formResponse";
+const FORM_FIELD = "entry.256898506";
+/* ====================== */
+
+// gallery
+const g = document.getElementById('gallery');
+for(let i=1;i<=10;i++){
+  const d=document.createElement('div'); d.className='g reveal';
+  const im=document.createElement('img'); im.src=`../img/p${i}.jpg`; im.alt='Brooke Raya'; im.loading='lazy';
+  d.appendChild(im); d.onclick=()=>{ document.getElementById('lbImg').src=im.src; document.getElementById('lb').classList.add('show'); };
+  g.appendChild(d);
+}
+document.getElementById('lb').onclick=function(){ this.classList.remove('show'); };
+
+// floating daisies, honeycomb bits and bees
+const layer=document.getElementById('float');
+function spawn(){
+  const r=Math.random(); let p;
+  if(r<.45){ p=document.createElementNS('http://www.w3.org/2000/svg','svg'); p.setAttribute('viewBox','0 0 40 40'); p.setAttribute('class','daisy'); p.innerHTML='<use href="#daisyS"/>'; p.style.width=p.style.height=(12+Math.random()*12)+'px'; }
+  else { p=document.createElement('div'); p.className='hex'; }
+  p.style.left=Math.random()*100+'vw';
+  p.style.setProperty('--dx',(Math.random()*140-70)+'px');
+  p.style.setProperty('--rot',(Math.random()*540-270)+'deg');
+  const d=8+Math.random()*7; p.style.animationDuration=d+'s';
+  layer.appendChild(p); setTimeout(()=>p.remove(),d*1000);
+}
+let popped=0;
+function burstAt(x,y,n,sym){
+  for(let i=0;i<n;i++){
+    const d=document.createElementNS('http://www.w3.org/2000/svg','svg'); d.setAttribute('viewBox','0 0 40 40'); d.setAttribute('class','bit');
+    d.innerHTML='<use href="#'+(sym||'beeS')+'"/>';
+    const a=Math.PI*2*i/n+Math.random()*.4, r=50+Math.random()*50;
+    d.style.left=(x-9)+'px'; d.style.top=(y-9)+'px';
+    d.style.setProperty('--bx',Math.cos(a)*r+'px'); d.style.setProperty('--by',Math.sin(a)*r+'px'); d.style.setProperty('--br',(Math.random()*360)+'deg');
+    document.body.appendChild(d); setTimeout(()=>d.remove(),800);
+  }
+}
+function addPoints(n,x,y){
+  popped+=n; const sc=document.getElementById('score'); sc.style.display='block'; sc.textContent='🦋 '+popped+' points';
+  const pl=document.createElement('div'); pl.className='plus'; pl.textContent='+'+n; pl.style.left=x+'px'; pl.style.top=y+'px';
+  if(n>1){ pl.style.fontSize='22px'; }
+  document.body.appendChild(pl); setTimeout(()=>pl.remove(),800);
+  if(Math.floor((popped-n)/20)!==Math.floor(popped/20)){ toast('🦋 '+popped+' points! Pure fairy magic!'); sfx('cheer'); }
+}
+function bee(){
+  const b=document.createElement('div'); b.className='bee';
+  b.style.top=(10+Math.random()*70)+'vh';
+  const d=9+Math.random()*5; b.style.animationDuration=d+'s';
+  const r=Math.random(), kind = r<.18 ? 'big' : (r<.36 ? 'ice' : 'berry');
+  if(kind==='big'){ b.classList.add('big'); b.style.animationDuration=(d*1.4)+'s'; }
+  if(kind==='ice'){ b.classList.add('ice'); }
+  b.innerHTML = kind==='ice' ? '<svg viewBox="0 0 60 80"><use href="#iceS"/></svg>' : '<svg viewBox="0 0 40 40" width="30" height="30"><use href="#beeS"/></svg>';
+  b.addEventListener('pointerdown',ev=>{ ev.stopPropagation(); if(b.classList.contains('burst')) return;
+    b.classList.add('burst');
+    if(kind==='big'){ sfx('boing'); burstAt(ev.clientX,ev.clientY,12); addPoints(5,ev.clientX,ev.clientY); }
+    else if(kind==='ice'){ sfx('yum'); burstAt(ev.clientX,ev.clientY,8); addPoints(3,ev.clientX,ev.clientY); }
+    else { sfx('berry'); burstAt(ev.clientX,ev.clientY,5); addPoints(1,ev.clientX,ev.clientY); }
+    setTimeout(()=>b.remove(),350); });
+  layer.appendChild(b); setTimeout(()=>b.remove(),d*1500);
+}
+setInterval(spawn,650); for(let i=0;i<6;i++) setTimeout(spawn,i*150);
+setInterval(bee,2600); setTimeout(bee,800);
+
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// countdown
+const last={}; const pad=n=>String(n).padStart(2,'0');
+function tick(){
+  const diff=Math.max(0,EVENT_DATE-new Date());
+  const v={d:Math.floor(diff/864e5),h:Math.floor(diff/36e5)%24,m:Math.floor(diff/6e4)%60,s:Math.floor(diff/1e3)%60};
+  for(const k in v){ const u=document.getElementById('u-'+k);
+    if(last[k]!==v[k]){ u.querySelector('.n').textContent=pad(v[k]); u.classList.remove('tick'); void u.offsetWidth; u.classList.add('tick'); last[k]=v[k]; } }
+}
+let countVisible=false;
+new IntersectionObserver(es=>es.forEach(e=>countVisible=e.isIntersecting),{threshold:.4}).observe(document.querySelector('.count'));
+tick(); setInterval(()=>{ tick(); if(countVisible) sfx('clock'); },1000);
+
+function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),3200); }
+// Saves to Google Form (and the linked Google Sheet). Opens the form's thank-you page in a new tab.
+function formLink(text){ return '#'; }
+// Sends the answer to the Google Form quietly (the guest stays on the invitation).
+function submitToForm(text){
+  const body=new URLSearchParams(); body.append(FORM_FIELD,text);
+  try{ return fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{ fallbackSubmit(text); }); }
+  catch(e){ fallbackSubmit(text); }
+}
+function fallbackSubmit(text){ // backup route: hidden form post into an invisible frame
+  let fr=document.getElementById('gfFrame'); if(!fr){ fr=document.createElement('iframe'); fr.name='gfFrame'; fr.id='gfFrame'; fr.style.display='none'; document.body.appendChild(fr); }
+  const f=document.createElement('form'); f.method='POST'; f.action=FORM_URL; f.target='gfFrame';
+  const i=document.createElement('input'); i.type='hidden'; i.name=FORM_FIELD; i.value=text; f.appendChild(i); document.body.appendChild(f); f.submit(); setTimeout(()=>f.remove(),3000);
+}
+function showThanks(name,msg){
+  document.getElementById('tkName').textContent=name?('Dear '+name):'';
+  document.getElementById('tkMsg').textContent=msg;
+  const t=document.getElementById('thanks'); t.classList.add('show'); t.scrollTop=0;
+  setTimeout(()=>{ sfx('cheer'); burstAt(innerWidth/2,innerHeight/3,18); burstAt(innerWidth/2,innerHeight/3,6,'iceS'); },250);
+}
+document.getElementById('tkBack').onclick=()=>{ document.getElementById('thanks').classList.remove('show'); sfx('pop'); };
+// RSVP
+let answer='yes', guests=1;
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); answer=b.dataset.a;
+  document.getElementById('countWrap').style.display=answer==='yes'?'block':'none';
+});
+document.querySelectorAll('.num button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.num button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); guests=+b.textContent;
+});
+function rsvpText(){
+  const name=document.getElementById('rName').value.trim(), note=document.getElementById('rNote').value.trim();
+  return [ 'RSVP', 'Name: '+name,
+    'Response: '+(answer==='yes'?'Joyfully accepts':'Regretfully declines'),
+    'Guests: '+(answer==='yes'?guests:0),
+    'Note: '+(note||'-') ].join(' | ');
+}
+function refreshRsvp(){ document.getElementById('rsvpBtn').href=formLink(rsvpText()); }
+['rName','rNote'].forEach(id=>document.getElementById(id).addEventListener('input',refreshRsvp));
+document.querySelectorAll('.tabs button,.num button').forEach(b=>b.addEventListener('click',refreshRsvp));
+refreshRsvp();
+document.getElementById('rsvpForm').onsubmit=e=>e.preventDefault();
+document.getElementById('rsvpBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  const name=document.getElementById('rName').value.trim();
+  if(!name){ toast('Please enter your full name first 🦋'); document.getElementById('rName').focus(); return; }
+  submitToForm(rsvpText());
+  document.getElementById('rsvpForm').style.display='none'; document.getElementById('rsvpDone').style.display='block';
+  document.getElementById('doneMsg').textContent=(answer==='yes'?`We received your RSVP, ${name}!`:`We received your reply, ${name}.`);
+  showThanks(name, answer==='yes'
+    ? `We received your RSVP for Brooke Raya's Christening and First Birthday. Your love and presence mean so much to our family, and we can't wait to celebrate with you!`
+    : `We received your reply. You'll be truly missed, and thank you so much for letting us know. Brooke Raya sends you a big fairy hug!`);
+});
+document.getElementById('rsvpAgain').onclick=()=>{ document.getElementById('rsvpDone').style.display='none'; document.getElementById('rsvpForm').style.display='block'; };
+
+// Blessings
+const wishes=[];
+function renderWishes(){
+  const box=document.getElementById('wishes');
+  box.innerHTML=wishes.length?'':'<p class="sub">Be the first to leave a little blessing.</p>';
+  wishes.slice().reverse().forEach(w=>{ const d=document.createElement('div'); d.className='wish';
+    const b=document.createElement('b'); b.textContent=w.name; const p=document.createElement('p'); p.textContent=w.msg;
+    d.append(b,p); box.appendChild(d); });
+}
+renderWishes();
+function wishText(){ return ['BLESSING','Name: '+document.getElementById('wName').value.trim(),'Message: '+document.getElementById('wMsg').value.trim()].join(' | '); }
+function refreshWish(){ document.getElementById('wishBtn').href=formLink(wishText()); }
+['wName','wMsg'].forEach(id=>document.getElementById(id).addEventListener('input',refreshWish));
+refreshWish();
+document.getElementById('wishForm').onsubmit=e=>e.preventDefault();
+document.getElementById('wishBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  const name=document.getElementById('wName').value.trim(), msg=document.getElementById('wMsg').value.trim();
+  if(!name||!msg){ toast('Please add your name and message 🦋'); return; }
+  submitToForm(wishText());
+  wishes.push({name,msg}); renderWishes(); document.getElementById('wMsg').value=''; refreshWish();
+  showThanks(name,`Your sweet blessing for Brooke Raya was received. Thank you for your love and prayers. They mean the world to our family!`);
+});
+
+// ===== Sound: music box + strawberry sound effects =====
+// Phones block sound until the first tap, so a small "Tap for sound" pill invites it.
+let ctx=null, master=null, soundOn=false, musicTimer=null, unlocked=false;
+try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+function ac(){
+  if(!ctx){ ctx=new (window.AudioContext||window.webkitAudioContext)(); master=ctx.createGain(); master.gain.value=3; const comp=ctx.createDynamicsCompressor(); comp.threshold.value=-10; comp.ratio.value=6; master.connect(comp).connect(ctx.destination); }
+  if(ctx.state==='suspended') ctx.resume();
+  return ctx;
+}
+function tone(f,start,dur,vol,type='sine',slideTo){
+  const t=ctx.currentTime+start, o=ctx.createOscillator(), g=ctx.createGain();
+  o.type=type; o.frequency.setValueAtTime(f,t);
+  if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo,t+dur*.6);
+  g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+.012); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(g).connect(master); o.start(t); o.stop(t+dur+.05);
+}
+const SFX={
+  // sparkly welcome: rising strawberry-sweet arpeggio with a twinkle
+  welcome(){ [784,988,1175,1568,1976].forEach((f,i)=>{ tone(f,i*.09,.7,.09); tone(f*2,i*.09+.02,.35,.025,'triangle'); }); tone(2637,.5,.9,.03); },
+  // juicy "bloop" for buttons
+  pop(){ tone(420,0,.16,.16,'sine',900); tone(1300,.04,.12,.04,'triangle'); },
+  // soft bell when a section appears while scrolling
+  plink(){ const f=[1047,1175,1319,1568][Math.floor(Math.random()*4)]; tone(f,0,.45,.05); tone(f*1.5,.03,.3,.015,'triangle'); },
+  // tiny tick for typing/choosing
+  tick(){ tone(1800,0,.05,.03,'triangle'); },
+  // happy fanfare after RSVP / blessing
+  shutter(){ tone(2400,0,.04,.08,'square'); tone(900,.05,.08,.05,'square'); },
+  whoosh(){ tone(900,0,.25,.04,'sine',300); },
+  berry(){ tone(660,0,.12,.14,'sine',1320); tone(1760,.06,.25,.05,'triangle'); tone(2349,.12,.3,.03); },
+  giggle(){ [988,1175,1319,1175,1568].forEach((f,i)=>tone(f,i*.07,.12,.05,'triangle')); },
+  plop(){ tone(520,0,.18,.18,'sine',180); tone(1200,.03,.08,.04,'triangle'); },
+  boing(){ tone(220,0,.35,.2,'sine',660); tone(660,.18,.3,.08,'sine',330); },
+  yum(){ [784,988,1319,1568,2093].forEach((f,i)=>tone(f,i*.07,.4,.08)); },
+  clock(){ tone(2000,0,.03,.012,'triangle'); },
+  cheer(){ [523,659,784,1047].forEach((f,i)=>tone(f,i*.1,.5,.09)); [1319,1568].forEach((f,i)=>tone(f,.45+i*.08,.6,.06)); }
+};
+function sfx(name){ if(soundOn && ctx) try{ SFX[name](); }catch(e){} }
+
+// Playlist: real MP3 files (loud, reliable on phones; ignore the iPhone silent switch).
+const SONGS=[{name:'Happy Birthday',src:'../audio/happy-birthday.mp3'},{name:'Twinkle Twinkle Little Star',src:'../audio/twinkle.mp3'},{name:'Fairy Waltz',src:'../audio/strawberry-waltz.mp3'}];
+let songIdx=0; const bgm=new Audio(); bgm.preload='auto'; bgm.volume=1; bgm.src=SONGS[0].src;
+bgm.addEventListener('ended',()=>{ songIdx=(songIdx+1)%SONGS.length; bgm.src=SONGS[songIdx].src; if(soundOn){ bgm.play().catch(()=>{}); showSong(); } });
+function stopSong(){ try{ bgm.pause(); }catch(e){} }
+function musicLoop(){ if(!soundOn) return; const p=bgm.play(); if(p) p.catch(()=>{ toast('🔈 Tap the ♪ button to play music'); }); }
+function showSong(){ const el=document.getElementById('nowPlaying'); el.textContent='♫ '+SONGS[songIdx].name; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),3500); }
+const mBtn=document.getElementById('music'), pill=document.getElementById('soundPill');
+function setSound(on){
+  soundOn=on; stopSong();
+  mBtn.classList.toggle('on',on); mBtn.textContent=on?'♪':'🔇';
+  if(on){ ac(); musicLoop(); showSong(); }
+  document.getElementById('nextSong').style.display=on?'flex':'none';
+}
+function unlock(){
+  if(unlocked) return; unlocked=true;
+  try{ ac(); setSound(true); SFX.welcome(); }catch(e){}
+  pill.classList.add('hide');
+}
+if(document.getElementById('envWrap')) pill.classList.add('hide');
+pill.addEventListener('click',e=>{ e.stopPropagation(); unlock(); });
+['click','touchend','keydown'].forEach(ev=>document.addEventListener(ev,unlock,{passive:true}));
+document.getElementById('nextSong').onclick=e=>{ e.stopPropagation(); songIdx=(songIdx+1)%SONGS.length; bgm.src=SONGS[songIdx].src; sfx('pop'); musicLoop(); showSong(); };
+mBtn.onclick=e=>{ e.stopPropagation(); if(!unlocked){ unlock(); return; } setSound(!soundOn); if(soundOn) SFX.pop(); };
+
+// click sounds on buttons, tabs, guest numbers, photos
+document.addEventListener('click',e=>{
+  if(!unlocked) return;
+  if(e.target.closest('.g')) return sfx('shutter');
+  if(e.target.closest('.lb')) return sfx('whoosh');
+  if(e.target.closest('.arch')) return sfx('giggle');
+  if(e.target.closest('.btn,.tabs button,.num button,.sw,.gp p')) sfx('pop');
+},true);
+// typing ticks (gentle, throttled)
+let lastTick=0;
+document.addEventListener('input',()=>{ const n=Date.now(); if(n-lastTick>90){ lastTick=n; sfx('tick'); } });
+// a soft bell as each section scrolls into view
+const sio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ sfx('plink'); } }),{threshold:.35});
+document.querySelectorAll('section h2').forEach(h=>sio.observe(h));
+// cheer after sending
+
+
+// ===== Personal invitations: link ends with #Ate-Bella =====
+const BASE_LINK = "https://vdele68.github.io/Brooke-raya/fairy/";
+const RESERVED = ['rsvp','wish','make-links',''];
+// Link format: #Ate-Bella  or with a custom note: #Ate-Bella|Your%20note
+function parseHash(){
+  let h=(location.hash||'').slice(1); try{ h=decodeURIComponent(h); }catch(e){}
+  if(!h || RESERVED.includes(h.toLowerCase())) return {name:'',note:''};
+  const i=h.indexOf('|'); const raw=i<0?h:h.slice(0,i); const note=i<0?'':h.slice(i+1).trim();
+  return {name:raw.replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim(), note};
+}
+function guestFromHash(){ return parseHash().name; }
+function slugName(n){ return n.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9 ]/g,'').trim().replace(/\s+/g,'-'); }
+
+// Unique messages by who the guest is, picked per name so each guest gets their own
+const ROLES=[
+  {keys:['ninang','ninong','godmother','godfather'], top:"A SPECIAL NOTE FOR BROOKE'S {T}", msgs:[
+    "{N}, thank you for saying yes to being Brooke Raya's {t}! We can't wait to stand with you at her christening. 🕊️",
+    "Brooke Raya is so blessed to have you as her {t}, {N}. Your guidance in faith means the world to our family. 🕊️",
+    "On February 9, you become part of Brooke Raya's faith story forever. We're so grateful to have you as her {t}! 🕊️",
+    "{N}, Brooke Raya has the best {t} in the world, and she wants you right beside her on her christening day! 🦋"]},
+  {keys:['lola','lolo','grandma','grandpa','nanay','tatay','mamang','papang'], top:"WITH LOVE, FOR BROOKE'S {T}", msgs:[
+    "{N}, your prayers and love carried Brooke Raya through her first year. Please join us as she receives God's blessing. 🙏",
+    "Brooke Raya's first birthday won't be the same without her {t}'s warm hugs. We'd be honored to celebrate with you! 🦋",
+    "From her first smile to her first giggles, you've been part of it all, {N}. Come celebrate this blessed day with us. 💕"]},
+  {keys:['tita','tito','auntie','aunt','uncle','tiyo','tiya'], top:"A SWEET NOTE FOR BROOKE'S {T}", msgs:[
+    "{N}, Brooke Raya is turning one and getting christened, and it won't be complete without her favorite {t}! 🦋",
+    "Thank you for loving Brooke Raya from day one, {N}. We'd be so happy to have you celebrate this milestone with her. 💕",
+    "Brooke Raya saved a big fairy hug just for you, {N}! Join us for her christening and very first birthday. 🦋",
+    "{N}, every spoil and every cuddle counts! Come celebrate Brooke Raya's magical day with us. 🦋"]},
+  {keys:['ate','kuya','cousin','pinsan','manang','manong'], top:"A FAIRY NOTE FOR BROOKE'S {T}", msgs:[
+    "Your little cousin Brooke Raya can't wait to play with her favorite {t}! Come celebrate her christening and very first birthday. 🦋",
+    "{N}, Brooke Raya has been practicing her biggest smile just for you! Please be there for her special day. 😊",
+    "Every little fairy needs a big {t} to look up to. Brooke Raya would love to celebrate her first year with you, {N}! 🦋",
+    "{N}, there will be ice cream, music and one very happy baby. Brooke Raya wants her {t} there! 🍦"]},
+  {keys:[], top:"YOU'VE GOT A SPECIAL INVITATION", msgs:[
+    "{N}, Brooke Raya would be so happy to have you with her on her christening and very first birthday. Your love means the world to her! 🦋",
+    "A magical day is coming, {N}! Brooke Raya is turning one and receiving God's blessing, and we'd love for you to be there. 🦋",
+    "{N}, you're one of the special people Brooke Raya wants to celebrate with. Come share our joy on her big day! 💕",
+    "Save the date, {N}! Brooke Raya's christening and first birthday will be extra sweet with you there. 🦋",
+    "{N}, your kindness has touched our little family this year. We'd love for you to celebrate Brooke Raya's blessed day with us. 🙏"]}
+];
+function roleFor(name){
+  const first=(name.split(' ')[0]||'').toLowerCase();
+  const lower=name.toLowerCase();
+  return ROLES.find(r=>r.keys.includes(first)) || ROLES.find(r=>r.keys.some(k=>lower.includes(k))) || ROLES[ROLES.length-1];
+}
+function hashStr(t){ let h=7; for(const c of t.toLowerCase()) h=(h*31+c.charCodeAt(0))>>>0; return h; }
+function messageFor(name){
+  const r=roleFor(name); const first=name.split(' ')[0];
+  const title=r.keys.includes(first.toLowerCase()) ? first : (r.keys[0]||'');
+  const pick=r.msgs[hashStr(name)%r.msgs.length];
+  const fill=t=>t.replace(/\{N\}/g,name).replace(/\{t\}/g,title.charAt(0).toUpperCase()+title.slice(1).toLowerCase()).replace(/\{T\}/g,title.toUpperCase());
+  return {msg:fill(pick), top:fill(r.top)};
+}
+let GUEST = guestFromHash();
+function personalize(){
+  const {name,note}=parseHash(); GUEST=name;
+  const dear=document.getElementById('dear'), per=document.getElementById('personal');
+  if(GUEST){
+    const m=messageFor(GUEST);
+    document.getElementById('envTo').textContent='To: '+GUEST;
+    document.getElementById('envTop').textContent=m.top;
+    dear.textContent='Dear '+GUEST+','; dear.style.display='block';
+    per.textContent=note || m.msg; per.style.display='block';
+    const rn=document.getElementById('rName'), wn=document.getElementById('wName');
+    if(rn && !rn.value) rn.value=GUEST; if(wn && !wn.value) wn.value=GUEST;
+    try{ refreshRsvp(); refreshWish(); }catch(e){}
+  }
+}
+personalize();
+// include which personal link was used in the saved RSVP
+const _rsvpText = rsvpText;
+rsvpText = function(){ return _rsvpText() + (GUEST ? ' | Invited as: '+GUEST : ''); };
+try{ refreshRsvp(); }catch(e){}
+
+// envelope open = first tap (also turns sound on)
+const envWrap=document.getElementById('envWrap'), envelope=document.getElementById('envelope');
+function openEnvelope(){
+  if(envelope.classList.contains('open')) return;
+  envelope.classList.add('open'); unlock(); sfx('berry');
+  setTimeout(()=>{ envWrap.classList.add('gone'); for(let i=0;i<12;i++) setTimeout(spawn,i*60); }, 900);
+  setTimeout(()=>envWrap.remove(), 2200);
+}
+envWrap.addEventListener('click',openEnvelope);
+
+// link maker
+const maker=document.getElementById('maker');
+function showMaker(){ const on=location.hash.toLowerCase()==='#make-links'; maker.classList.toggle('show',on); if(on) envWrap.classList.add('gone'); }
+showMaker();
+window.addEventListener('hashchange',()=>{ showMaker(); personalize(); });
+let made=[];
+document.getElementById('makerGo').onclick=()=>{
+  const names=document.getElementById('makerNames').value.split('\n').map(x=>x.trim()).filter(Boolean);
+  const out=document.getElementById('makerOut'); out.innerHTML=''; made=[];
+  names.forEach(n=>{
+    const parts=n.split('|'); const nm=parts[0].trim(); const note=(parts.slice(1).join('|')||'').trim();
+    const link=BASE_LINK+'#'+slugName(nm)+(note?'%7C'+encodeURIComponent(note):''); made.push(nm+': '+link);
+    const preview=note||messageFor(nm.replace(/[^A-Za-z0-9 ]/g,'').replace(/\s+/g,' ').trim()).msg;
+    const row=document.createElement('div'); row.className='row';
+    const info=document.createElement('div'); info.style.flex='1';
+    const b=document.createElement('b'); b.textContent=nm; const c=document.createElement('code'); c.textContent=link;
+    const pv=document.createElement('small'); pv.style.cssText='display:block;margin-top:6px;font-style:italic;color:#6a3f6e;line-height:1.45'; pv.textContent='💌 '+preview;
+    info.append(b,pv,c);
+    const btn=document.createElement('button'); btn.textContent='Copy';
+    btn.onclick=async()=>{ let ok=false; try{ await navigator.clipboard.writeText(link); ok=true; }catch(e){} btn.textContent=ok?'✓ Copied':'Hold link to copy'; setTimeout(()=>btn.textContent='Copy',2000); };
+    row.append(info,btn); out.appendChild(row);
+  });
+};
+document.getElementById('makerAll').onclick=async()=>{ if(!made.length) document.getElementById('makerGo').click(); let ok=false; try{ await navigator.clipboard.writeText(made.join('\n')); ok=true; }catch(e){} toast(ok?'📋 All links copied':'Select the links to copy them'); };
+document.getElementById('makerClose').onclick=e=>{ e.preventDefault(); location.hash=''; maker.classList.remove('show'); };
+
+// ===== Big hero strawberries: squish + burst =====
+document.querySelectorAll('.bigberry').forEach(el=>el.addEventListener('click',ev=>{
+  ev.stopPropagation(); el.classList.remove('squish'); void el.getBoundingClientRect(); el.classList.add('squish');
+  sfx('boing'); burstAt(ev.clientX,ev.clientY,10); addPoints(2,ev.clientX,ev.clientY);
+}));
+
+// ===== Ice cream builder =====
+const FLAVORS=['#f6c6dd','#e3cdf2','#fbe3ee','#d6b8ec','#f2b6d3'];
+let scoopsN=0;
+function addScoop(ev){
+  if(scoopsN>=5){ sfx('yum'); toast('🍦 It is already perfect! Tap Start over'); return; }
+  const box=document.getElementById('scoops');
+  const sc=document.createElementNS('http://www.w3.org/2000/svg','svg'); sc.setAttribute('viewBox','0 0 130 84'); sc.setAttribute('class','scoop');
+  sc.style.color=FLAVORS[scoopsN]; sc.style.bottom=(scoopsN*34)+'px'; sc.style.zIndex=10-scoopsN;
+  sc.innerHTML='<use href="#scoopS"/>'; box.appendChild(sc);
+  scoopsN++; sfx('plop');
+  document.getElementById('icecount').textContent=scoopsN+' of 5 scoops';
+  if(scoopsN===5){
+    const t=document.createElementNS('http://www.w3.org/2000/svg','svg'); t.setAttribute('viewBox','0 0 40 40'); t.setAttribute('class','topper');
+    t.style.bottom=(4*34+70)+'px'; t.innerHTML='<use href="#beeS"/>'; box.appendChild(t);
+    setTimeout(()=>{ sfx('cheer'); const r=document.getElementById('icebox').getBoundingClientRect(); burstAt(r.left+r.width/2,r.top+40,16); burstAt(r.left+r.width/2,r.top+60,8,'iceS');
+      document.getElementById('icecount').textContent='Yum! Brooke says thank you! 🦋🍦'; toast('🍦 5 scoops! Simply magical!'); },450);
+  }
+}
+document.getElementById('icebox').addEventListener('click',addScoop);
+document.getElementById('addScoop').addEventListener('click',addScoop);
+document.getElementById('resetIce').addEventListener('click',()=>{ document.getElementById('scoops').innerHTML=''; scoopsN=0; document.getElementById('icecount').textContent='0 of 5 scoops'; });
+
+// strawberry confetti when RSVP / blessing sent
+
+</script>
+</body>
+</html>
